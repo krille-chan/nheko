@@ -312,6 +312,6 @@ removeDirectFromRoom(QString roomid);
 void
 markRoomAsDirect(QString roomid, std::vector<RoomMember> members);
 
-int
-getChildNotificationsForSpace(const QString &spaceId);
+//! Returns a pair of integers representing the unread notifications in a space and how many of them are loud notifications, respectively.
+QPair<int, int> getChildNotificationsForSpace(const QString &spaceId);
 }
