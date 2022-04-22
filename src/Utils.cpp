@@ -888,14 +888,11 @@ utils::getChildNotificationsForSpace(const QString &spaceId)
     auto children = cache::getRoomInfo(cache::client()->getChildRoomIds(spaceId.toStdString()));
     QPair<int, int> retVal;
     for (const auto &[childId, child] : children) {
-        if (child.is_space)
-        {
+        if (child.is_space) {
             auto temp{utils::getChildNotificationsForSpace(childId)};
             retVal.first += temp.first;
             retVal.second += temp.second;
-        }
-        else{
-
+        } else {
             retVal.first += child.notification_count;
             retVal.second += child.highlight_count;
         }
